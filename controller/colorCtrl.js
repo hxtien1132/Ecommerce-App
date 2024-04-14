@@ -1,6 +1,7 @@
 const Color = require("../models/colorModel");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongodbId");
+const HttpError = require("../config/error");
 
 const createColor = asyncHandler(async (req, res) => {
   try {

@@ -1,6 +1,7 @@
 const Enquiry = require("../models/enqModel");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongodbId");
+const HttpError = require("../config/error");
 
 const createEnquiry = asyncHandler(async (req, res) => {
   try {

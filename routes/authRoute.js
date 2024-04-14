@@ -1,6 +1,5 @@
 const express = require("express");
 const {
-  createUser,
   loginUserCtrl,
   getallUser,
   getaUser,
@@ -25,6 +24,7 @@ const {
   getAllOrders,
   getOrderByUserId,
   getMyOrders,
+  registerUser,
 } = require("../controller/userCtrl");
 const { authMiddleware, isAdmin } = require("../middlewares/authMiddleware");
 const router = express.Router();
@@ -33,7 +33,7 @@ const router = express.Router();
 //
 //
 //auth
-router.post("/register", createUser);
+router.post("/register", registerUser);
 router.post("/login", loginUserCtrl);
 router.post("/admin-login", loginAdmin);
 router.get("/logout", logout);

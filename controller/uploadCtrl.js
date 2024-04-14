@@ -1,5 +1,6 @@
 const fs = require("fs");
 const asyncHandler = require("express-async-handler");
+const HttpError = require("../config/error");
 
 const { cloudinaryUploadImg, cloudinaryDeleteImg } = require("../utils/cloudinary");
 const { log } = require("sharp/lib/libvips");

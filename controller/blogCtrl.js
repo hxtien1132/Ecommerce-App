@@ -3,12 +3,13 @@ const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongodbId");
 const cloudinaryUploadImg = require("../utils/cloudinary");
 const fs = require("fs");
+const HttpError = require("../config/error");
 const createBlog = asyncHandler(async (req, res) => {
   try {
     const newBlog = await Blog.create(req.body);
     res.json(newBlog);
   } catch (error) {
-    throw new Error(error);
+    throw new HttpError(error);
   }
 });
 
@@ -21,7 +22,7 @@ const updateBlog = asyncHandler(async (req, res) => {
     });
     res.json(updateBlog);
   } catch (error) {
-    throw new Error(error);
+    throw new HttpError(error);
   }
 });
 
@@ -39,7 +40,7 @@ const getBlog = asyncHandler(async (req, res) => {
     );
     res.json(updateViews);
   } catch (error) {
-    throw new Error(error);
+    throw new HttpError(error);
   }
 });
 const getAllBlogs = asyncHandler(async (req, res) => {
@@ -47,7 +48,7 @@ const getAllBlogs = asyncHandler(async (req, res) => {
     const getBlogs = await Blog.find();
     res.json(getBlogs);
   } catch (error) {
-    throw new Error(error);
+    throw new HttpError(error);
   }
 });
 
@@ -58,7 +59,7 @@ const deleteBlog = asyncHandler(async (req, res) => {
     const deletedBlog = await Blog.findByIdAndDelete(id);
     res.json(deletedBlog);
   } catch (error) {
-    throw new Error(error);
+    throw new HttpError(error);
   }
 });
 
@@ -183,7 +184,7 @@ const uploadImages = asyncHandler(async (req, res) => {
     );
     res.json(findBlog);
   } catch (error) {
-    throw new Error(error);
+    throw new HttpError(error);
   }
 });
 
